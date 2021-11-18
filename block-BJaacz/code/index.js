@@ -86,7 +86,7 @@ function addFiveToArray(arr,cb){
   }
   return finalArray;
 }
-
+console.log(addFiveToArray([1,2,3,4]))
 
 /*
 In above function addTwoToArray, addThreeToArray, addFiveToArray we are repeating the code, let's fix this.
@@ -112,6 +112,9 @@ function changeArray(arr,cb){
   }
   return finalArray;
 }
+console.log(changeArray([1, 2, 3, 4, 5, 6], addTwo));
+    console.log(changeArray([1, 2, 3, 4, 5, 6], addThree)); 
+    console.log(changeArray([1, 2, 3, 4, 5, 6], addFive)); 
 
 /*
   Create a function called sendMessage that accepts two arguments:
@@ -133,8 +136,8 @@ console.log(sendMessage("Hello", console.log));
 console.log(sendMessage("Hello Alert!", alert));
 console.log(sendMessage("Hello Prompt!", prompt));
 
-function sendMessage(str,cb){
-  return cb(str)
+function sendMessage(msg,cb){
+  return cb(msg)
 }
 
 /*
@@ -159,9 +162,11 @@ function second(num){
   return function third(){
      return num +1
   }
-  third()
+  return third()
 }
 
+let val = second();
+console.log(val)
 /*
  Write a function named `callMe` which 
   - accept a function (callback function) as argument.
@@ -492,7 +497,7 @@ filter is a higher order function.
 */
 
 function filter(obj,cb){
- return cb(obj);
+ return cb(obj);  
 }
 
 /*
