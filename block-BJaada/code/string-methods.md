@@ -9,9 +9,25 @@ Go to this [link](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Refere
 Only if you are done with step 1 you should go ahead.
 
 1. Practice it by yourself in console (4-5 times to understand)
-2. Data types of parameters
-3. Return value type
+2. Data types of parameters  Ans-- anything
+3. Return value type  Ans -- 
 4. Write three examples
+
+
+let name = "sanaya"
+name.charAt(3)
+'a'
+
+name.trim()
+'sanaya'
+
+name.trimStart()
+'sanaya    '
+
+name.trimEnd()
+'   sanaya'
+
+
 5. In your own words and one sentence explain what this method does.
 
 Example:
@@ -32,19 +48,102 @@ Example:
    - `charAt` accepts a index (number data type) and return the character on that index in the string.
 
 2. `toUpperCase`
+
+ name.toUpperCase()
+'ARYA STARK'
+
 3. `toLowerCase`
+
+name.toLowerCase()
+'arya stark'
+
 4. `trim`
+
+name.trim()
+'Arya Stark'
+
 5. `trimEnd`
+
+name.trimStart()
+'Arya Stark  '
+
 6. `trimStart`
+
+name.trimStart()
+'Arya Stark  '
+
 7. `concat`
+
+tagline="Everything you need to become a software developer"
+name.concat("is" ,tagline)
+'   sanaya    isEverything you need to become a software developer'
+
 8. `endsWith`
+
+name.endsWith("k")
+true
+name.startsWith("A")
+true
+
 9. `includes`
+
+ame.includes("A")
+true
+name.includes("c")
+false
+name.includes("S")
+true
+
 10. `indexOf`
+
+name.indexOf("S")
+5
+
 11. `lastIndexOf`
+
+name.lastIndexOf("A")
+0
+
 12. `padEnd`
+
+name.padEnd('15',".")
+'Arya Stark.....'
+
 13. `padStart`
+
+name.padStart('15',".")
+'.....Arya Stark'
+
+name.padStart('15',"0")
+'00000Arya Stark'
+
 14. `repeat`
+
+name.repeat(4)
+'Arya StarkArya StarkArya StarkArya Stark'
+
 15. `replace`
+
+name.replace("a","o")
+'Aryo Stark'
+
 16. `slice`
+
+tagline.slice(0,4)
+'Ever'
+
+tagline.slice(0,26)
+'Everything you need to bec'
+
 17. `split`
+
+tagline.split(" ");
+(8) ['Everything', 'you', 'need', 'to', 'become', 'a', 'software', 'developer']
+
 18. `substring`
+
+tagline.substring(0,29)
+'Everything you need to become'
+
+tagline.substring(0,"nan")
+''
