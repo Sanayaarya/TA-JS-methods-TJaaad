@@ -8,13 +8,21 @@ console.log(`The length of [${message}] is ${message.length}`);
 
 console.log(`The first character of ${message} is ${message[0]}`)
 
+or 
+
+console.log(message.charAt(0))
+
 // Log the last character of message using length like `The last character of [message] is [character]`
 
 console.log(`The last character of ${message} is ${message[42]}`)
 
+or 
+
+console.log(message.charAt(message.length-1))
+
 // Log the index of word "you" in message
 
-message.indexOf("you");
+message.indexOf("you")
 3
 
 // Log the index of word "still" in message
@@ -39,25 +47,45 @@ true
 message.includes("they")
 false
 
+or
+
+console.log(message.indexOf("they")!==-1);
+
 // Log true or false based on whether the word "is" exist in message or not
 
 message.includes("is")
 true
+
+or
+
+console.log(message.indexOf("is")!==-1);
 
 // Log true or false based on whether the word "Is" exist in message or not
 
 message.includes("Is")
 false
 
+console.log(message.indexOf("is")!==-1);
+
 // Check and log whether the word from index 3 to 6 is "you" or not (use slice)
 
 message.slice(3,6)
 'you'
 
+or
+
+console.log(message.slice(3,6)==="you")
+
+
 // Check and log whether the word from index 7 to 8 is "a" or not
 
 message.slice(7,8)
 'a'
+
+
+or
+
+console.log(message.slice(7,8)==="you")
 
 // Check and log whether the last 3 character in message is "no!" or not (you can use -3 in slice)
 message.slice(-3)
