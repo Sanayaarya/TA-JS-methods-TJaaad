@@ -146,6 +146,11 @@ let numbersThree = [1, 2, [3, 4, [5, 6, [7, 8, [9, 10]]]]];
 numbersThree.flat(5)
 (10) [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
+or 
+
+numbersThree = numbersThree.flat(infinity)
+
+
 // Use forEach to log all the elements of numberThree array
 
 let numbersThree = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
@@ -153,6 +158,11 @@ function element(a){
   console.log(a);
   }
   numbersThree.forEach(element)
+
+  or
+
+  numbersThree.forEach((num) => console.log(num));
+  
 
 
 // Create a new variable named doubleNumbers that store the numberThree array (each element should be multiplied by 2). Use map
@@ -171,6 +181,10 @@ function doubleNumber(num){
   doubleNumber(4)
   8
 
+  or
+
+  let doubleNumbers = numbersThree.map((ele)=> ele *2);
+
 // Create a new variable named tripleNumbers that store the numberThree array (each element should be multiplied by 3). Use map
 
 let numbersThree = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
@@ -187,6 +201,10 @@ function tripleNumber(num){
   undefined
   tripleNumber(4)
   12
+
+  or
+
+  let tripleNumbers = numbersThree.map((ele)=> ele * 3);
 
 // Create a new variable named halfNumbers that store the numberThree array (each element should be divided by 2). Use map
 
@@ -205,23 +223,24 @@ function halfNumber(num){
   halfNumber(4)
   2
 
+  or
+
+  let halfNumbers = numbersThree.map((ele)=> ele  / 2);
+
 // Create a new variable named oddNumbers that store all the odd numbers in numbersThree array
 
-let oddNumbers = [1,3,5,7,9,11];
-let numbersThree =[];
-oddNumbers.forEach(e=>{
-numbersThree.push(e)
-})
+let oddNumbers= numbersThree.filter(
+  (ele)=> ele % 2 !== 0
+)
 
 
 
 // Create a new variable named evenNumbers that store all the even numbers in numbersThree array
 
-let evenNumbers = [2,4,6,8,10,12,14,16,18,20];
-let numbersThree =[];
-evenNumbers.forEach(e=>{
-numbersThree.push(e)
-})
+let evenNumbers= numbersThree.filter(
+  (ele)=> ele % 2 === 0
+)
+
 
 
 // Find the index of 10 in numbersThree array
@@ -230,6 +249,8 @@ let numbersThree = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 undefined
 numbersThree.indexOf(10)
 9
+
+numbersThree.find((num)=> num === 10);
 
 // Reverse the values of numbersThree array
 
@@ -243,15 +264,9 @@ numbersTwo.reverse()
 
 // Join all fruits with '-', convert to uppercase and log it
 
-fruits = ['Pears', 'Kiwi', 'Lemon', 'Dragan fruit', 'Guava', 'Orange', 'Apple', 'Mango', 'Papaya', 'Berries', 'Melons']
-fruits.forEach((e)=>{
-  console.log(e.toUpperCase())
-})
-console.log(elements.join('-'));
+
+console.log(fruits.join('-').toLowerCase);
 
 // Join all fruits with '&', convert to lowercase and log it
-fruits = ['Pears', 'Kiwi', 'Lemon', 'Dragan fruit', 'Guava', 'Orange', 'Apple', 'Mango', 'Papaya', 'Berries', 'Melons']
-fruits.forEach((e)=>{
-  console.log(e.toLowerCase())
-})
-console.log(elements.join('&'));
+
+console.log(fruits.join('&').toUpperCase);
