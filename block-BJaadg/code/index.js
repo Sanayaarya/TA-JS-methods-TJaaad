@@ -12,7 +12,6 @@ let to = 'Arya Stark';
 quote.indexOf("is")
 6
 
-
 let indexOfIs = quote.indexOf("is")
 
 
@@ -24,7 +23,13 @@ quote.charAt(indexOfIs)
 3. Log the message saying `The index of first is in quote is 7`
 */
 
-quite.charAt(7)
+quote.charAt(7)
+
+or 
+
+console.log(
+  `The index of first is in quote is ${quote.charAt(indexOfIs)}`
+)
 
 /*
 4. Log the message for first 6 characters of quote like this.
@@ -49,6 +54,12 @@ quote.charAt(5)
 ' '
 quote.charAt(6)
 'i'
+
+or
+
+for(let i= 0; i < 6;i++){
+  console.log(`The character at index ${i} is ${quote[i]}`)
+}
 /*
 5. Using the variable from , to and quote variable dispaly this message
   "Syrio Forel said There is only one thing we say to death: Not today to Arya Stark." (use concat method)
@@ -63,6 +74,8 @@ from.concat(quote,to)
 
 from.endsWith("rk")
 false
+
+
 
 /*
 7. Does quote includes the word "Only"
@@ -96,7 +109,11 @@ quote.split("")
 11. Change the word "today" in quoteSplitted to "tomorrow" and join all the words to form a sentance.
 */
 
+let index = quoteSplitted.indexOf("today");
 
+quoteSplitted[index] = "tomorrow";
+
+quoteSplitted.join(" ");
 
 /*
 12. Find the index of second "o" in quote. Use indexOf
@@ -114,6 +131,7 @@ quote.lastIndexOf("a")
 14. Find the second last index of letter "a" in quote.
 */
 
+quote.lastIndexOf("a" , lastIndexOfA -1);
 
 /*
 15. Make the quote 70 character long. If it has less characters add rest as .......
@@ -124,6 +142,18 @@ Store the output in a new variable
 quote.padEnd("70",'.')
 'There is only one thing we say to death: Not today....................'
 
+or
+
+let max = 70;
+
+let length = quote.length;
+
+for(let i = lenght; i<=max;i++){
+  quote = quote + ".";
+  length= quote.lenght;
+}
+
+let newQuote = quote + ".".repeat(max - length);
 /*
 16. Do same as (15) but the ... should come in start. Store the output in a new variable
 */
@@ -131,6 +161,10 @@ quote.padEnd("70",'.')
 quote.padStart("60",'.')
 
 '..........There is only one thing we say to death: Not today'
+
+or
+
+let newStartQuote= ".".repeat(max - length) + quote;
 
 /*
 17. Log the repeat of "Hello World!" 10 times.
@@ -140,12 +174,18 @@ let a = "Hello World!"
 a.repeat(10)
 'Hello World!Hello World!Hello World!Hello World!Hello World!Hello World!Hello World!Hello World!Hello World!Hello World!'
 
+or
+
+console.log("Hello World".repeat(10));
+
 /*
 18. Replace today to tomorrow in quote.
 */
 
 quote.replace("today","tomorrow")
 'There is only one thing we say to death: Not tomorrow'
+
+
 
 /*
 19. Replace Stark to Lannister in quoteTo
@@ -157,7 +197,7 @@ to.replace("Stark","Lannister")
 /*
 20. Make the quote of length 30 and put ... at the end. (use slice)
 */
-
+let limit = quote.slice(0,30)+ "..."
 /*
 21. Find out does quote, from, to starts with "A"
 */
