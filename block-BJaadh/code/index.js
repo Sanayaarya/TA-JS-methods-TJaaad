@@ -25,6 +25,10 @@ numbers.lastIndexOf(9)
 strings.toString()
 'This,is,a,collection,of,words'
 
+or 
+ 
+strings.join("");
+
 // - Add two new words in the strings array "called" and "sentance"
 
 strings.push("called","sentance")
@@ -32,9 +36,15 @@ strings.push("called","sentance")
 strings
 (12) ['This', 'is', 'a', 'collection', 'of', 'words', 'called', 'sentance', 'called', 'sentance', 'called', 'sentance']
 
+or 
+
+strings.push("called");
+strings.push("sentance")
+
 // - Again convert the updated array (strings) into sentance like "This is a collection of words called sentance"
 
-strings.join()
+strings.join("")
+
 'This,is,a,collection,of,words,called,sentance,called,sentance,called,sentance'
 
 // - Remove the first word in the array (strings)
@@ -48,12 +58,21 @@ strings
 
 strings.includes("is")
 
+or 
+
+let allIs = strings.filter((String)=> String.includes("is"));
+
 // - Find all the words that contain 'is' use string method 'indexOf'
 
 strings.indexOf("is")
 0
 
+or 
+
+let allIsAgain = strings.filter((string)=> string.indexOf("is") !== -1 );
 // - Check if all the numbers in numbers array are divisible by three use array method (every)
+
+numbers.every((num)=> num % 3 === 0);
 
 // -  Sort Array from smallest to largest
 
@@ -71,7 +90,15 @@ numbers.forEach((large)=>{
   }  
 })
 
+or 
+
+let largest = numbers.sort((a,b)=> a - b).pop();
+
 // - Find longest string in strings
+
+let longestString = strings 
+  .sort((a,b)=> a.length - b.length )
+  .pop();
 
 // - Find all the even numbers
 
@@ -85,7 +112,7 @@ console.log(evenNumbers);
 
 // - Place a new word at the start of the array use (unshift)
 
-strings.unshift("That");
+strings.unshift("New World");
 
 // - Make a subset of numbers array [18,9,7,11]
 
@@ -108,6 +135,18 @@ numbers.splice( 3,1,1881);
 [18]
 numbers
 (12) [1, 1221, 4, 1881, 9, 7, 11, 3, 101, 5, 6, 9]
+
+or 
+
+console.log(
+  numbers.map((num)=>{
+    if(num === 12){
+      return 1221;
+    } else if (num === 18){
+      return num;
+    }
+  })
+);
 
 // - Replace words in strings array with the length of the word
 
@@ -137,7 +176,12 @@ customers.filter((customer)=>{
   
   return customer.firstname[0] =='J'
  })
- 
+
+ or 
+
+ let filteredCustomer = customers.filter((customer)=>
+  customer.firstname.startsWith("J")
+ )
 
 // - Create new array with only first name
 
@@ -146,6 +190,11 @@ let firstName = [];
    return firstName.push(customer.firstname)
  });
 
+ or 
+
+ let firstnameCustomer = customers.map(
+  (customer)=> customer.firstname
+);
  
 
 // - Create new array with all the full names (ex: "Joe Blogs")
@@ -154,6 +203,13 @@ customers.forEach((customer)=>{
   let fullName = (`${customer.firstname}  ${customer.lastname}`)
 arr.push(fullName)
 });
+
+or 
+
+let fullnameCustomer = customers.map(
+  (customer)=>
+  `${customer.firstName} ${customer.lastname}`
+);
 
 
 // - Sort the array created above alphabetically
