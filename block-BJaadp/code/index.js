@@ -17,17 +17,40 @@ let persons = [
 
 // Find the average grade
 
+persons.reduce((acc, cv) => {
+  return acc + cv.grade;
+} ,0) / persons.length;
+
 // Find the average grade of male
+
+let maleGrade = persons.filter((male) => male.sex === 'M');
+maleGrade.reduce((acc, cv) => {
+  return acc + cv.grade;
+}, 0) / maleGrade.length;
+
 
 // Find the average grade of female
 
+let femaleGrade = persons.filter((female) => female.sex === 'F');
+femaleGrade.reduce((acc, cv) => {
+  return acc + cv.grade;
+}, 0) / femaleGrade.length;
+
 // Find the highest grade
+
+let personsGrade = persons.map((ele) => ele.grade);
+[...personsGrade].sort((a, b) => a - b).pop();
 
 // Find the highest grade in male
 
+[...maleGrade].sort((a, b) => a - b).pop();
+
 // Find the highest grade in female
 
+[...femaleGrade].sort((a, b) => a - b).pop();
+
 // Find the highest grade for people whose name starts with 'J' or 'P'
+
 
 const fruitBasket = [
   'banana',
@@ -51,7 +74,16 @@ that fruit has appeared in the array. Store it in new variable fruitsObj
 Output: 
 {banana: 2, cherry: 3, orange: 3, apple: 2, fig: 1}
 */
+let fruitsObj = fruitBasket.reduce((acc,cv,ci,arr)=> {
+  if(acc.hasOwnProperty(cv)){
+    ++acc[cv];
+  }
+  else{
+    acc[cv] = 1;
 
+  }
+  return acc;
+},{})
 /* 
 
 Use the fruitBasket array to create an array of array. Each array will contain two values name of fruit and number of times
@@ -61,6 +93,16 @@ Output:
 
 [['banana', 2], ['cherry', 3], ['orange', 3], ['apple', 2], ['fig', 1]]
 */
+let fruitsObj = fruitBasket.reduce((acc,cv,ci,arr)=> {
+  if(acc.hasOwnProperty(cv)){
+    ++acc[cv];
+  }
+  else{
+    acc[cv] = 1;
+
+  }
+  return acc;
+},[])
 
 const data = [
   [1, 2, 3],
@@ -69,7 +111,11 @@ const data = [
   [10, 11, 12],
 ];
 
+
+
 // Using reduce flat data array
+
+data.reduce((acc,cv)=> acc.concat(cv),[]);
 
 const dataTwo = [
   [1, 2, 3],
@@ -80,6 +126,8 @@ const dataTwo = [
 
 // Using reduce flat dataTwo array
 
+dataTwo.reduce((acc,cv)=> acc.concat(cv),[]);
+
 /*
 
 Create these functions which accepts a number value and returns a number value:
@@ -89,6 +137,26 @@ Create these functions which accepts a number value and returns a number value:
   - `triple` triples the input 
   - `half` converts the value to half and return the integer value not decimal (use Math.round(21.5) => 21)
 */
+
+function increment(num){
+  return num + 1;
+}
+
+function double(num){
+return num * 2;
+}
+
+function decrement(num){
+return num - 1;
+}
+
+function triple(num){
+return num * 3 ;
+}
+
+function half(num){
+return Math.round(num / 2) ;
+}
 
 let pipeline = [
   increment,
@@ -101,8 +169,17 @@ let pipeline = [
   increment,
 ];
 
+function mathOperation(pipeline){
+  let result = pipeline.reduce((acc,v)=>{
+    acc = acc(v);
+    return acc
+  },3)
+  return result;
+}
+
 /*
 Using the pipeline variable that contains the collection of functions, taking the initial value 3 find the output.
+
 
 NOTE: Initial value will be passed to first function the output of that function will be the input to next function.
 
