@@ -1,36 +1,94 @@
 // NOTE: You can only use the (reduce) array method to solve this exercise:
 
-function countAllPeople() {
-  // your code goes here
-}
 
-function peopleByHouses() {
-  // your code goes here
-}
 
-function everyone() {
-  // your code goes here
-}
-
-function nameWithS() {
-  // your code goes here
-}
-
-function nameWithA() {
-  // your code goes here
-}
-
-function surnameWithS() {
-  // your code goes here
-}
-
-function surnameWithA() {
-  // your code goes here
-}
-
-function peopleNameOfAllHouses() {
-  // your code goes here
-}
+  function countAllPeople() {
+    return got.houses.reduce((acc, cv) => {
+      acc += cv.people.length;
+      return acc;
+    }, 0);
+  }
+  
+  function peopleByHouses() {
+    return got.houses.reduce((acc, cv) => {
+      acc[cv.name] = cv.people.map((value) => value.name);
+      return acc;
+    }, {});
+  }
+  
+  function everyone() {
+    return got.houses.reduce((acc, cv) => {
+      for (i = 0; i < cv.people.length; i++) {
+        acc = acc.concat(cv.people[i].name);
+      }
+      return acc;
+    }, []);
+  }
+  
+  function nameWithS() {
+    return got.houses.reduce((acc, cv) => {
+      for (i = 0; i < cv.people.length; i++) {
+        if (cv.people[i].name.toUpperCase().includes("S")) {
+          acc = acc.concat(cv.people[i].name);
+        }
+      }
+      return acc;
+    }, []);
+  }
+  
+  function nameWithA() {
+    return got.houses.reduce((acc, cv) => {
+      for (i = 0; i < cv.people.length; i++) {
+        if (cv.people[i].name.toUpperCase().includes("A")) {
+          acc = acc.concat(cv.people[i].name);
+        }
+      }
+      return acc;
+    }, []);
+  }
+  
+  function surnameWithS() {
+    return got.houses.reduce((acc, cv) => {
+      for (i = 0; i < cv.people.length; i++) {
+        if (
+          cv.people[i].name
+            .split(" ")
+            [cv.people[i].name.split(" ").length - 1].toUpperCase()
+            .includes("S")
+        ) {
+          acc = acc.concat(cv.people[i].name);
+        }
+      }
+      return acc;
+    }, []);
+  }
+  
+  function surnameWithA() {
+    return got.houses.reduce((acc, cv) => {
+      for (i = 0; i < cv.people.length; i++) {
+        if (
+          cv.people[i].name
+            .split(" ")
+            [cv.people[i].name.split(" ").length - 1].toUpperCase()
+            .includes("A")
+        ) {
+          acc = acc.concat(cv.people[i].name);
+        }
+      }
+      return acc;
+    }, []);
+  }
+  
+  function peopleNameOfAllHouses() {
+    return got.houses.reduce((acc, cv) => {
+      for (i = 0; i < cv.people.length; i++) {
+        acc[cv.name] = cv.people.map((val) => val.name);
+      }
+      return acc;
+    }, {});
+  }
+  
+  
 
 // Testing your result after writing your function
 console.log(countAllPeople());
